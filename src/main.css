@@ -1,0 +1,16 @@
+body {
+  font-family: 'Source Sans Pro', 'Trebuchet MS', 'Lucida Grande', 'Bitstream Vera Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  /* text-align: center; */
+  color: #293c4b;
+}
+
+.cursor {
+  animation: cursor-blink 1s steps(5, start) infinite;
+}
+
+@keyframes cursor-blink {
+  to {
+    opacity: 0;
+  }
+}
