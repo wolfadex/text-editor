@@ -76,7 +76,16 @@ update msg model =
                 , Cmd.none
                 )
         -- TextDelete ->
-        --
+        --     let
+        --         cursorX = model.cursor.x
+        --         newContent = Rope.remove cursorX (cursorX + 1) model.content
+        --     in
+        --         ( { model
+        --           | content = newContent
+        --           -- , cursor = moveCursor model.cursor (Position -1 0) (Rope.getLength newContent)
+        --           }
+        --         , Cmd.none
+        --         )
         -- TextRemoveHighlighted ->
         --
         FocusContent ->
@@ -183,6 +192,8 @@ handleKeyDown code =
     case (Keys.fromCode code) of
         Keys.BackSpace ->
             TextBackSpace
+        Keys.Delete ->
+            TextDelete
         Keys.ArrowRight ->
             CursorMove (Position 1 0)
         Keys.ArrowLeft ->
