@@ -5,7 +5,7 @@ A basic text editor written *completely in elm.
 #### Features:
 - [x] Type/paste text
 - [x] Remove (backspace) text
-- [ ] Remove (delete) text
+- [x] Remove (delete) text
 - [ ] Move cursor (left and right only, no visual representation yet)
 - [ ] Add new lines
 - [ ] Remove new lines
