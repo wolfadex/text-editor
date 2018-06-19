@@ -28,7 +28,7 @@ init =
     ( { content = Empty
       , cursor = Position 0 0
       }
-    , Cmd.none
+    , Task.attempt FocusContentResult (Dom.focus "editor-content")
     )
 
 
@@ -145,6 +145,7 @@ contentArea content cursor =
              , Attribute.css [ Css.minHeight (Css.rem 5)
                              , Css.backgroundColor (Css.rgb 200 200 200)
                              , Css.flex (Css.num 1)
+                             , Css.whiteSpace Css.pre
                              ]
              ]
              [ Html.text <| Rope.toString content
@@ -186,7 +187,7 @@ subscriptions model =
               ]
 
 
--- handleKeyDown : KeyCode -> Sub Msg
+handleKeyDown : Keyboard.KeyCode -> Msg
 handleKeyDown code =
     case (Keys.fromCode code) of
         Keys.BackSpace ->
@@ -201,5 +202,9 @@ handleKeyDown code =
             CursorMove (Position 0 -1)
         Keys.ArrowDown ->
             CursorMove (Position 0 1)
+        Keys.Enter ->
+            TextInsert "\n"
+        Keys.Tab ->
+            TextInsert "\t"
         _ ->
             NoOp

@@ -8,11 +8,11 @@ type Rope
 
 
 splitLength : Int
-splitLength = 4
+splitLength = 10
 
 
 joinLength : Int
-joinLength = 2
+joinLength = 5
 
 
 rebalanceRatio : Float
@@ -127,3 +127,36 @@ getLengthHelper lengthSoFar rope =
             lengthSoFar + length
         Node _ right leftLength ->
             getLengthHelper (lengthSoFar + leftLength) right
+
+
+-- rebuild : Rope -> Rope TODO
+-- rebuild rope =
+--     case rope of
+--         Empty ->
+--
+--         Leaf string int ->
+--
+--         Node rope rope2 int ->
+--
+
+
+-- rebalance : Rope -> Rope TODO
+-- rebalance rope =
+--     case rope of
+--         Empty ->
+--
+--         Leaf string int ->
+--
+--         Node rope rope2 int ->
+--
+
+
+-- getSubstring : Int -> Int -> Rope -> String TODO
+-- getSubstring from to rope =
+--     case rope of
+--         Empty ->
+--             ""
+--         Leaf string int ->
+--
+--         Node rope rope2 int ->
+--
