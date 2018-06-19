@@ -75,17 +75,16 @@ update msg model =
                   }
                 , Cmd.none
                 )
-        -- TextDelete ->
-        --     let
-        --         cursorX = model.cursor.x
-        --         newContent = Rope.remove cursorX (cursorX + 1) model.content
-        --     in
-        --         ( { model
-        --           | content = newContent
-        --           -- , cursor = moveCursor model.cursor (Position -1 0) (Rope.getLength newContent)
-        --           }
-        --         , Cmd.none
-        --         )
+        TextDelete ->
+            let
+                cursorX = model.cursor.x
+                newContent = Rope.remove cursorX (cursorX + 1) model.content
+            in
+                ( { model
+                  | content = newContent
+                  }
+                , Cmd.none
+                )
         -- TextRemoveHighlighted ->
         --
         FocusContent ->

@@ -42,7 +42,10 @@ adjust rope =
                 rope
         Node left right leftLength ->
             if leftLength < joinLength then
-                Leaf (toString left ++ (toString right)) leftLength
+                let
+                    newText = toString left ++ (toString right)
+                in
+                    Leaf newText (String.length newText)
             else
                 rope
 
@@ -75,7 +78,7 @@ insert text position rope =
             if position < leftLength then
                 Node (insert text position left) right (leftLength + (String.length text))
             else
-                Node left (insert text position right) leftLength
+                Node left (insert text (position - leftLength) right) leftLength
 
 
 remove : Int -> Int -> Rope -> Rope
